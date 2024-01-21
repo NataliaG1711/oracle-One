@@ -1,5 +1,7 @@
 //Elemento Hoisting donde hace el elemento de las variables de las funciones al inicio para que queden disponibles
+let numeroSecreto = generarNumeroSecreto();
 
+console.log(numeroSecreto);
 
 function asignarTextoElemento(elemento, texto){
     let elementoHTML = document.querySelector(elemento)
@@ -9,11 +11,18 @@ se pueden realizar diferentes cosas
 
 Es parte del DOM: Document Object Model
 */
-elementoHTML.innerHTML = texto; 
+    elementoHTML.innerHTML = texto; 
+    return;
+}
+
+function generarNumeroSecreto(){
+    return Math.floor(Math.random()*10)+1;
+    
 }
 
 function userAttempt(){
     alert("click desde el boton");
+    return;
 }
 
 asignarTextoElemento("h1", "Juego del número secreto");
