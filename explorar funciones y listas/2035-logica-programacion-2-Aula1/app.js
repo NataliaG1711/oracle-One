@@ -1,5 +1,7 @@
 //Elemento Hoisting donde hace el elemento de las variables de las funciones al inicio para que queden disponibles
 let numeroSecreto = generarNumeroSecreto();
+let intentos = 1;
+
 
 function asignarTextoElemento(elemento, texto){
     /*es un método para acceder a los elementos del html, donde se le dice a la cantidad de elementos que hay
@@ -12,19 +14,28 @@ function asignarTextoElemento(elemento, texto){
     return;
 }
 
-function generarNumeroSecreto(){
-    return Math.floor(Math.random()*10)+1;
-    
-}
 
 function verificarIntento(){
     let numeroUsuario = parseInt(document.getElementById("valorUsuario").value);
-    console.log(typeof(numeroUsuario));
-    console.log(numeroUsuario);
-    console.log(numeroSecreto);
-    console.log(typeof(numeroSecreto));
-    console.log(numeroUsuario === numeroSecreto);
+
+    
+
+    if(numeroUsuario === numeroSecreto){
+        asignarTextoElemento("p", `acertaste el número en ${intentos} ${(intentos == 1) ? "intento" : "intentos"}.`)
+    } else{
+        if(numeroUsuario > numeroSecreto){
+            asignarTextoElemento("p", "El número secreto es menor");
+        } else{
+            asignarTextoElemento("p","el número secreto es mayor");
+        }
+        intentos++;
+    }
     return;
+}
+
+function generarNumeroSecreto(){
+    return Math.floor(Math.random()*10)+1;
+    
 }
 
 asignarTextoElemento("h1", "Juego del número secreto");
