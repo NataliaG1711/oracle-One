@@ -1,6 +1,8 @@
 // Elemento Hoisting donde hace el elemento de las variables de las funciones al inicio para que queden disponibles
 let numeroSecreto = 0;
 let intentos = 0;
+let listaNumerosAleatorios = [];
+let numeroMaximo = 10;
 
 function asignarTextoElemento(elemento, texto) {
     /* 
@@ -41,12 +43,30 @@ function limpiarCaja() {
 }
 
 function generarNumeroSecreto() {
-    return Math.floor(Math.random() * 10) + 1;
+    let numeroGenerado = Math.floor(Math.random() * numeroMaximo) + 1;
+    //Si ya sorteamos todos los números
+    console.log(numeroGenerado);
+    console.log(listaNumerosAleatorios);
+
+    if(listaNumerosAleatorios.length == numeroMaximo){
+        asignarTextoElemento("p", `Ya se sortearon todos los ${numeroMaximo} números posibles`);
+
+    } else{
+        //Si el numero generado está incluido en la lista 
+        if(listaNumerosAleatorios.includes(numeroGenerado)){
+            return generarNumeroSecreto();
+        }else{
+            listaNumerosAleatorios.push(numeroGenerado);//Push se usa para añadir algo al final del array, mientras que pop se usar para eliminar el ultimo elemento
+            return numeroGenerado;
+        }
+    }
+
+    
 }
 
 function condicionesIniciales() {
     asignarTextoElemento("h1", "Juego del número secreto");
-    asignarTextoElemento("p", "Indica un número del 1 al 10");
+    asignarTextoElemento("p", `Indica un número del 1 al ${numeroMaximo}`);
     numeroSecreto = generarNumeroSecreto();
     intentos = 1;
 }
