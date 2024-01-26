@@ -27,7 +27,7 @@
 
 function encriptar() {
     // Obtener el valor del campo de entrada y convertirlo a minúsculas
-    let texto = document.getElementById("textoUsuario").value;//.toLowerCase();
+    let texto = document.getElementById("textoUsuario").value; //.toLowerCase();
     let resultado = ""; // Variable para almacenar el resultado cifrado
 
     // Mapeo de letras a sus correspondientes secuencias cifradas
