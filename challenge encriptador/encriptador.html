@@ -6,8 +6,11 @@
     <title>Encriptador</title>
 </head>
 <body>
-    <textarea id="textoUsuario"></textarea>
-    <button>Encriptar</button>
-    <button>Desencriptar</button>
+    <label for="textoUsuario">Ingrese el texto a convertir</label>
+    <input type="text" id="textoUsuario" name="textoUsuario">
+    <button onclick="encriptar();">Encriptar</button>
+    <button onclick="desencriptar();">Desencriptar</button>
+
+    <script src="encriptador.js"></script>
 </body>
 </html>
