@@ -1,5 +1,5 @@
 
-/*function encriptar(){
+function encriptar(){
     let texto = document.getElementById("textoUsuario").value;//.toLowerCase(); //El .value se utiliza para obtener el contenido actual del campo de entrada.
     let resultado = ""; //se usa para almacenar el resultado cifrado
     for (let i = 0; i < texto.length; i++) {
@@ -19,71 +19,75 @@
             resultado += cadena;
         }
         /*Se itera a través de cada carácter del texto ingresado. Para cada carácter, se verifica la letra y si es alguna,
-         se añade al resultado; de lo contrario, se añade el carácter original.
+         se añade al resultado; de lo contrario, se añade el carácter original.*/
     }
     console.log(resultado);
-}
-*/
-
-function encriptar() {
-    // Obtener el valor del campo de entrada y convertirlo a minúsculas
-    let texto = document.getElementById("textoUsuario").value; //.toLowerCase();
-    let resultado = ""; // Variable para almacenar el resultado cifrado
-
-    // Mapeo de letras a sus correspondientes secuencias cifradas
-    const mapeoCifrado = {
-        'a': 'ai',
-        'e': 'enter',
-        'i': 'imes',
-        'o': 'ober',
-        'u': 'ufat'
-    };
-
-    // Iterar sobre cada carácter en el texto ingresado
-    for (let i = 0; i < texto.length; i++) {
-        // Obtener el carácter actual
-        let caracter = texto[i];
-
-        // Verificar si el carácter está en el mapeoCifrado
-        if (mapeoCifrado.hasOwnProperty(caracter)) {
-            // Si está en el mapeo, agregar la secuencia cifrada al resultado
-            resultado += mapeoCifrado[caracter];
-        } else {
-            // Si no está en el mapeo, agregar el carácter original al resultado
-            resultado += caracter;
-        }
-    }
-
-    // Imprimir el resultado cifrado en la consola
-    console.log(resultado);
+    document.getElementById("salidaTexto").innerText = resultado;
+    limpiarCaja();
 }
 
-function desencriptar() {
-    // Obtener el valor del campo de entrada
+function desencriptar(){
     let texto = document.getElementById("textoUsuario").value;
-    let resultado = ""; // Variable para almacenar el resultado descifrado
+    let resultado = "";
 
-    // Mapeo de secuencias cifradas a sus correspondientes letras originales
-    const mapeoDescifrado = {
-        'ai': 'a',
-        'enter': 'e',
-        'imes': 'i',
-        'ober': 'o',
-        'ufat': 'u'
-    };
-
-    // Iterar sobre cada propiedad del objeto mapeoDescifrado
-    for (let secuenciaCifrada in mapeoDescifrado) {
-        /*
-        Se utiliza el método split para dividir el texto cada vez que encuentra la secuencia 
-        cifrada, y luego se usa join para unir las partes utilizando la letra descifrada correspondiente.
-        */
-        texto = texto.split(secuenciaCifrada).join(mapeoDescifrado[secuenciaCifrada]);
+    for(let i = 0; i < texto.length; i++){
+        let cadena = texto[i]
+        if(cadena === "a"){
+            resultado = resultado + "a"
+            i = i+1;
+        }
+        else if(cadena === "e"){
+            resultado = resultado + "e"
+            i = i+4;
+        }
+        else if(cadena === "i"){
+            resultado = resultado + "i"
+            i = i+3;
+        }
+        else if(cadena == "o"){
+            resultado = resultado + "o"
+            i = i+3;
+        }
+        
+        else if(cadena == "u"){
+            resultado = resultado + "u"
+            i = i+3;
+        }
+        else{
+            resultado = resultado + cadena;
+        }
+        
     }
+    console.log(resultado) ;
+    document.getElementById("salidaTexto").innerText = resultado;
+    limpiarCaja();
+}
+    
 
-    // El resultado ahora está almacenado en la variable 'texto'
-    resultado = texto;
+function limpiarCaja(){
+    let valorCaja = document.getElementById("textoUsuario");
+    valorCaja.value ="";
 
-    // Mostrar el resultado descifrado en algún lugar de la página (por ejemplo, en un div con id "resultadoDescifrado")
-    console.log(resultado);
+}
+
+function limpiarTextArea(){
+    let valorTextArea = document.getElementById("salidaTexto");
+    valorTextArea.value = "";
+}
+
+function copiar(){
+    let textarea = document.getElementById("salidaTexto");
+
+            // Seleccionar el contenido del textarea
+            textarea.select();
+
+            // Copiar el texto al portapapeles
+            document.execCommand("copy");
+
+            // Deseleccionar el textarea
+            textarea.setSelectionRange(0, 0);
+            //limpiarTextArea();
+            // Mostrar un mensaje o realizar cualquier acción adicional
+            //alert("Texto copiado: " + textarea.value);
+    
 }
