@@ -4,17 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador</title>
+    <link rel="stylesheet" href="encriptador.css">
 </head>
 <body>
-    <label for="textoUsuario">Ingrese el texto a convertir</label>
-    <input type="text" id="textoUsuario" name="textoUsuario">
-    <button onclick="encriptar();">Encriptar</button>
-    <button onclick="desencriptar();">Desencriptar</button>
-    <textarea id="salidaTexto" readonly></textarea>
+    <header>
+        <img class="logo" src="Logo.png">
+    </header>
+    <main>
+        <section class="seccion1">
+            <div class="contenedorcajaTexto">
+                <textarea placeholder="Ingrese el texto aqui" class="cajaTexto" id="textoUsuario"></textarea>
+            </div>
+            
+            <div class="alerta">
+                <img src="alerta.svg" alt="alerta">
+                <p>Solo letras minúsculas y sin acentos</p>
+            </div>
     
-    <span>
-        <button onclick="copiar();">Copiar</button>
-    </span>
+            <div class="contenedoresBotones">
+                <button onclick="encriptar();" class="encriptar">Encriptar</button>
+                <button onclick="desencriptar();" class="desencriptar">Desencriptar</button>
+            </div>
+        </section>
+        <section class="seccion2">
+            <div class="contenedorMuñeco">
+                <img src="Muñeco.svg" alt="muñeco">
+            </div>
+            <div class="contenedorParrafo">
+                <h3>Nigún mensaje fue encontrado</h3>
+                <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+            </div>
+            <div class="contenedorCopiar">
+                <button onclick="copiar();" class="copiar">Copiar</button>
+            </div>
+            <div class="contenedorResultado">
+                <textarea id="salidaTexto" readonly class="resultado"></textarea>
+            </div>
+        </section>
+        
+
+        
+        
+        
+    </main>
+    
+    
     <script src="encriptador.js"></script>
 </body>
 </html>

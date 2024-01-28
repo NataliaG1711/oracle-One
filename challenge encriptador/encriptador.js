@@ -70,24 +70,13 @@ function limpiarCaja(){
 
 }
 
-function limpiarTextArea(){
-    let valorTextArea = document.getElementById("salidaTexto");
-    valorTextArea.value = "";
-}
 
 function copiar(){
     let textarea = document.getElementById("salidaTexto");
-
             // Seleccionar el contenido del textarea
             textarea.select();
-
             // Copiar el texto al portapapeles
             document.execCommand("copy");
-
             // Deseleccionar el textarea
-            textarea.setSelectionRange(0, 0);
-            //limpiarTextArea();
-            // Mostrar un mensaje o realizar cualquier acción adicional
-            //alert("Texto copiado: " + textarea.value);
-    
+            //textarea.setSelectionRange(0, 0);
 }
