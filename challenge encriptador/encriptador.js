@@ -1,6 +1,6 @@
 
 function encriptar(){
-    let texto = document.getElementById("textoUsuario").value;//.toLowerCase(); //El .value se utiliza para obtener el contenido actual del campo de entrada.
+    let texto = document.getElementById("textoUsuario").value.toLowerCase(); //El .value se utiliza para obtener el contenido actual del campo de entrada.
     let resultado = ""; //se usa para almacenar el resultado cifrado
     for (let i = 0; i < texto.length; i++) {
         let cadena = texto[i]; 
