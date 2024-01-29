@@ -90,15 +90,37 @@ form{
     margin: 40px 0;
 }
 
-form label{
+form label, form legend{
     display: block;
     font-size: 20px;
     margin: 0 0 10px;
 }
-form input{
+.inputPadron{
     display: block;
     margin: 0 0 20px;
     padding: 10px 25px;
     width: 50%;
 }
+
+.checkbox{
+    margin: 20px 0;
+}
+
+.enviar{
+    width: 40%;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: orange;
+    border: none;
+    border-radius: 10px;
+    transition: 1s background;
+    cursor: pointer;
+}
+
+.enviar:hover{
+    background-color: darkorange;
+}
+
 
