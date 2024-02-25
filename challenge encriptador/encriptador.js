@@ -62,6 +62,7 @@ function desencriptar(){
     console.log(resultado) ;
     document.getElementById("salidaTexto").innerText = resultado;
     limpiarCaja();
+    mostrarResultado();
 }
     
 
