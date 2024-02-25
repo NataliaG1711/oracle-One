@@ -24,6 +24,7 @@ function encriptar(){
     console.log(resultado);
     document.getElementById("salidaTexto").innerText = resultado;
     limpiarCaja();
+    mostrarResultado();
 }
 
 function desencriptar(){
@@ -79,4 +80,13 @@ function copiar(){
             document.execCommand("copy");
             // Deseleccionar el textarea
             //textarea.setSelectionRange(0, 0);
+    ocultarResultado();
+}
+
+function mostrarResultado() {
+    document.getElementById('contenedorResultado').style.display = 'block';
+}
+
+function ocultarResultado() {
+    document.getElementById('contenedorResultado').style.display = 'none';
 }
